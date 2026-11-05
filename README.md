@@ -20,3 +20,11 @@ footprints openly, and to check how well that measurement actually works.
 - `docs/` methodology and images
 
 More soon.
+
+## Architecture
+
+![ExpiryLens architecture](docs/images/expirylens_architecture.png)
+
+## Daily workflow
+
+![ExpiryLens daily workflow](docs/images/expirylens_daily_workflow.png)
