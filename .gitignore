@@ -1,0 +1,21 @@
+# raw and downloaded market data stays on this machine only
+data/
+*.parquet
+*.csv
+
+# secrets, API keys, tokens
+.env
+*.env
+
+# python leftovers
+__pycache__/
+*.pyc
+.venv/
+.ipynb_checkpoints/
+
+# node / frontend
+node_modules/
+.next/
+
+# OS junk
+.DS_Store
