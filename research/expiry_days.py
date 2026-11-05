@@ -17,6 +17,6 @@ def next_tuesdays(start, count):
 
 
 today = date.today()
-for d in next_tuesdays(today, 8):
+for d in next_tuesdays(today, 10):
     rule = "closing auction price" if d < VWAP_SWITCH else "30-min VWAP"
     print(f"{d:%a %d %b %Y}   settles on {rule}")
