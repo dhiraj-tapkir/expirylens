@@ -2,6 +2,38 @@
 
 Running notes on what the data shows. Newest first.
 
+## 2026-11-12: expiry days have bigger late moves (VWAP era, significant)
+
+**Metric.** Late move = Nifty's change from the 15:14 candle to the day's
+final close, in bps. 15:14 is the last minute before the closing auction
+freezes the index, so the metric works in both regimes.
+
+**Result.** Median absolute late move, expiry vs normal days:
+
+| Regime | Normal | Expiry | Gap | Permutation p (10k shuffles) |
+|---|---|---|---|---|
+| VWAP_PRE (Sep 2025 to Jul 2026, 48 expiries) | 4.3 bps | 7.7 bps | +3.3 bps | 0.0012 |
+| CAS (Aug to Nov 2026, 15 expiries) | 11.8 bps | 14.3 bps | +2.5 bps | 0.27 |
+
+**Reading it.**
+- VWAP era: the expiry effect is strong and very unlikely to be chance.
+- CAS era: the gap is smaller and not significant, but 15 expiries is a
+  small sample. We cannot yet tell whether the auction removed the effect or
+  just made it harder to detect.
+- Levels are not comparable across regimes. In the CAS era 15 minutes of
+  price discovery land in one auction jump, so all late moves look bigger.
+
+**Not a claim of manipulation.** Bigger expiry-day moves also fit innocent
+explanations such as option hedging flows. The data shows a pattern, not
+intent.
+
+**Side note.** The auction jump landed in the 15:28 candle on 9 Nov and the
+15:29 candle on 11 Nov, consistent with the random close between 15:28 and
+15:30.
+
+**Next.** Use official settlement values instead of the last candle, add
+Sensex as a second index, and revisit the CAS result after more expiries.
+
 ## 2026-11-12: the index freezes during the closing auction
 
 **What we saw.** On Mon 9 Nov 2026 (a likely Nifty expiry, since Tue 10 Nov
