@@ -3,6 +3,7 @@ name = "expirylens"
 version = "0.1.0"
 requires-python = ">=3.12"
 dependencies = [
+    "duckdb>=2.0.0",
     "httpx>=0.28.1",
     "polars>=2.1.0",
     "python-dotenv>=1.2.4",
