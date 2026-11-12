@@ -6,5 +6,6 @@ dependencies = [
     "duckdb>=2.0.0",
     "httpx>=0.28.1",
     "polars>=2.1.0",
+    "psycopg[binary]>=3.3.9",
     "python-dotenv>=1.2.4",
 ]
