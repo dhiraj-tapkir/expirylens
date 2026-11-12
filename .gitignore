@@ -19,3 +19,6 @@ node_modules/
 
 # OS junk
 .DS_Store
+
+# pytest scratch files
+.pytest_cache/
