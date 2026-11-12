@@ -45,12 +45,9 @@ def split_stray(df):
     return good, stray
 
 
-def main():
-    parser = argparse.ArgumentParser()
-    parser.add_argument("path")
-    args = parser.parse_args()
-
-    df = pl.read_parquet(args.path).select(COLS)
+def load_file(path):
+    """Load one parquet file. Returns (rows_read, inserted, quarantined)."""
+    df = pl.read_parquet(path).select(COLS)
     good, stray = split_stray(df)
     keys = df["instrument_key"].unique().to_list()
 
@@ -91,10 +88,16 @@ def main():
         )
         inserted = cur.rowcount
 
-    print(
-        f"read {df.height:,} rows, inserted {inserted:,} new, "
-        f"quarantined {stray.height:,}"
-    )
+    return df.height, inserted, stray.height
+
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("path")
+    args = parser.parse_args()
+
+    rows, inserted, quarantined = load_file(args.path)
+    print(f"read {rows:,} rows, inserted {inserted:,} new, quarantined {quarantined:,}")
 
 
 if __name__ == "__main__":

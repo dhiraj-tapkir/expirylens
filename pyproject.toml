@@ -3,6 +3,8 @@ name = "expirylens"
 version = "0.1.0"
 requires-python = ">=3.12"
 dependencies = [
+    "dagster>=1.13.29",
+    "dagster-webserver>=1.13.29",
     "duckdb>=2.0.0",
     "httpx>=0.28.1",
     "polars>=2.1.0",
