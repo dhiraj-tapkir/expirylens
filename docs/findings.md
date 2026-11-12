@@ -2,6 +2,36 @@
 
 Running notes on what the data shows. Newest first.
 
+## 2026-11-12: Nifty and Sensex react to the auction in opposite ways
+
+Same late-move metric (15:14 candle to final close), now for both indices.
+Median absolute late move, bps:
+
+| Index | Regime | Normal | Expiry | Gap | p (10k shuffles) |
+|---|---|---|---|---|---|
+| Nifty | VWAP_PRE (48 expiries) | 4.3 | 7.7 | +3.3 | 0.0012 |
+| Nifty | CAS (15) | 11.8 | 14.3 | +2.5 | 0.27 |
+| Sensex | VWAP_PRE (48) | 5.1 | 6.1 | +0.9 | 0.18 |
+| Sensex | CAS (14) | 9.1 | 18.4 | +9.4 | 0.0084 |
+| Sensex | CAS without 13 Aug 2026 (13) | | | +8.9 | 0.015 |
+
+**Reading it.**
+- Five tests, so the bar is p < 0.01 (Bonferroni). Two pass: Nifty under
+  VWAP settlement and Sensex under the closing auction.
+- The indices move in opposite directions after the switch: Nifty's expiry
+  effect shrinks, Sensex's roughly doubles.
+- Leaving out 13 Aug 2026 (the expiry in SEBI's Copthall interim order)
+  barely changes the Sensex gap (9.4 to 8.9 bps). One day is not driving it.
+
+**Possible explanations (untested).** Chance with small CAS samples, a real
+difference in how easy each exchange's closing auction is to move (e.g.
+auction depth), or hedging flows that differ by exchange.
+
+**Not a claim of manipulation.** These are patterns, not evidence of intent.
+SEBI's order on 13 Aug 2026 is interim, not final.
+
+**Next.** Measure closing auction volume per exchange, add Bank Nifty, and
+rerun once more CAS and post-December expiries are in.
 ## 2026-11-12: expiry days have bigger late moves (VWAP era, significant)
 
 **Metric.** Late move = Nifty's change from the 15:14 candle to the day's
