@@ -1,5 +1,7 @@
 # ExpiryLens
 
+[![tests](https://github.com/dhiraj-tapkir/expirylens/actions/workflows/tests.yml/badge.svg)](https://github.com/dhiraj-tapkir/expirylens/actions/workflows/tests.yml)
+
 Studying how India's index expiry-day settlement can be pushed around, and
 how much it costs to move it, using only public market data.
 
