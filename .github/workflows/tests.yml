@@ -1,0 +1,18 @@
+# runs the unit tests on every push to main and on pull requests
+name: tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  unit:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+      - name: install dependencies
+        run: uv sync --locked
+      - name: run tests
+        run: uv run pytest -v
