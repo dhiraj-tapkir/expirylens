@@ -1,0 +1,58 @@
+[
+ {
+  "index_name": "NIFTY",
+  "regime": "VWAP_PRE",
+  "is_expiry": false,
+  "days": 178,
+  "median_abs_bps": 4.3
+ },
+ {
+  "index_name": "NIFTY",
+  "regime": "VWAP_PRE",
+  "is_expiry": true,
+  "days": 48,
+  "median_abs_bps": 7.7
+ },
+ {
+  "index_name": "NIFTY",
+  "regime": "CAS",
+  "is_expiry": false,
+  "days": 54,
+  "median_abs_bps": 11.8
+ },
+ {
+  "index_name": "NIFTY",
+  "regime": "CAS",
+  "is_expiry": true,
+  "days": 15,
+  "median_abs_bps": 14.3
+ },
+ {
+  "index_name": "SENSEX",
+  "regime": "VWAP_PRE",
+  "is_expiry": false,
+  "days": 178,
+  "median_abs_bps": 5.1
+ },
+ {
+  "index_name": "SENSEX",
+  "regime": "VWAP_PRE",
+  "is_expiry": true,
+  "days": 48,
+  "median_abs_bps": 6.1
+ },
+ {
+  "index_name": "SENSEX",
+  "regime": "CAS",
+  "is_expiry": false,
+  "days": 55,
+  "median_abs_bps": 9.1
+ },
+ {
+  "index_name": "SENSEX",
+  "regime": "CAS",
+  "is_expiry": true,
+  "days": 14,
+  "median_abs_bps": 18.4
+ }
+]

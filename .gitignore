@@ -22,3 +22,6 @@ node_modules/
 
 # pytest scratch files
 .pytest_cache/
+
+# derived results the dashboard reads (safe to publish, unlike raw data)
+!web/public/data/
