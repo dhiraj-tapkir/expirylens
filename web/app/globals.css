@@ -95,3 +95,9 @@ h3 {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* where the crosshair steps aside, show a real cursor instead of nothing */
+@media (pointer: fine) {
+  html.has-reticle [data-reticle] { cursor: default !important; }
+  html.has-reticle :is(a, button, label) { cursor: pointer !important; }
+}
