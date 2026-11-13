@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import Swarm from "@/components/charts/Swarm";
+import Brand from "@/components/Brand";
 import { IndexName, days, expiries, findings } from "@/lib/data";
 
 function Legend() {
@@ -33,14 +34,7 @@ export default function Overview() {
 
   return (
     <main className="mx-auto flex max-w-[1180px] flex-col gap-10 px-6 pb-40 pt-10 md:px-8">
-      <Link href="/" data-reticle className="flex items-center gap-3 self-start text-text no-underline">
-        <svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true">
-          <circle cx="17" cy="17" r="14" fill="none" stroke="var(--teal)" strokeWidth="2" />
-          <circle cx="17" cy="17" r="6" fill="none" stroke="var(--orchid)" strokeWidth="2" />
-          <path d="M17 0v8M17 26v8M0 17h8M26 17h8" stroke="var(--text)" strokeWidth="1.5" />
-        </svg>
-        <span className="font-display text-2xl font-extrabold tracking-tight">ExpiryLens</span>
-      </Link>
+      <Brand />
 
       <section className="flex max-w-[900px] flex-col gap-5">
         <h1 className="m-0 whitespace-pre-line text-[clamp(48px,7vw,92px)] font-extrabold leading-[0.95]">

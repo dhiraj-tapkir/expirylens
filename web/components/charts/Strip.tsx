@@ -71,11 +71,11 @@ export default function Strip({ finding }: { finding: Finding }) {
         .style("fill-opacity", row === "expiry" ? 0.95 : 0.6)
         .style("cursor", "pointer")
         .on("pointerenter", (event, d) => {
-          d3.select(event.currentTarget).raise().transition().duration(120).attr("r", 8);
+          d3.select(event.currentTarget as Element).raise().transition().duration(120).attr("r", 8);
           setHover({ d, x: x(Math.abs(d.late_move_bps)), y: mid });
         })
         .on("pointerleave", (event) => {
-          d3.select(event.currentTarget).transition().duration(150).attr("r", row === "expiry" ? 5 : 3.5);
+          d3.select(event.currentTarget as Element).transition().duration(150).attr("r", row === "expiry" ? 5 : 3.5);
           setHover(null);
         })
         .on("click", (_, d) => router.push(`/explorer?index=${d.index_name}&day=${d.day}`));

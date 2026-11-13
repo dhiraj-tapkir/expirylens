@@ -76,11 +76,11 @@ export default function Swarm({ index }: { index: IndexName }) {
       .style("fill-opacity", (d) => (d.is_expiry ? 1 : 0.55))
       .style("cursor", "pointer")
       .on("pointerenter", (event, d) => {
-        d3.select(event.currentTarget).raise().transition().duration(150).attr("r", 9).style("fill-opacity", 1);
+        d3.select(event.currentTarget as Element).raise().transition().duration(150).attr("r", 9).style("fill-opacity", 1);
         setHover({ d, x: x(parse(d.day)), y: y(d.late_move_bps) });
       })
       .on("pointerleave", (event, d) => {
-        d3.select(event.currentTarget).transition().duration(200)
+        d3.select(event.currentTarget as Element).transition().duration(200)
           .attr("r", d.is_expiry ? 5.5 : 3.6).style("fill-opacity", d.is_expiry ? 1 : 0.55);
         setHover(null);
       })
