@@ -103,12 +103,12 @@ export function formatBps(bps: number): string {
   return `${bps > 0 ? "+" : ""}${bps.toFixed(1)} bps`;
 }
 
+// spelled out by hand: Node and browsers ship different locale data ("Sep" vs "Sept"),
+// which made the server and client disagree and broke hydration
+const WEEKDAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
 export function formatDay(iso: string): string {
-  return new Date(`${iso}T00:00:00Z`).toLocaleDateString("en-GB", {
-    weekday: "short",
-    day: "numeric",
-    month: "short",
-    year: "numeric",
-    timeZone: "UTC",
-  });
+  const d = new Date(`${iso}T00:00:00Z`);
+  return `${WEEKDAYS[d.getUTCDay()]}, ${d.getUTCDate()} ${MONTHS[d.getUTCMonth()]} ${d.getUTCFullYear()}`;
 }

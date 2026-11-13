@@ -227,7 +227,7 @@ function Detail({ day }: { day: Day | null }) {
       </p>
 
       <p className="mt-6 text-sm text-muted">
-        Bigger than {share}% of {REGIME_LABEL[day.regime].toLowerCase()} days for this index
+        Bigger than {share}% of {REGIME_LABEL[day.regime].replace("Auction", "auction")} days for this index
       </p>
       <div className="mt-2 h-2 overflow-hidden rounded-full bg-raised">
         <div className="h-2 rounded-full" style={{ width: `${share}%`, background: accent }} />
