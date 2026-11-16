@@ -7,6 +7,7 @@ see how often pure chance produces a gap at least that big.
 Also runs a robustness check with the 13 Aug 2026 Sensex expiry (the day in
 SEBI's Copthall interim order) left out, to see if one day drives the result.
 """
+
 import random
 import statistics
 from datetime import date
@@ -18,8 +19,8 @@ COPTHALL_DAY = date(2026, 8, 13)
 
 
 def median_gap(values, labels):
-    expiry = [v for v, is_exp in zip(values, labels) if is_exp]
-    normal = [v for v, is_exp in zip(values, labels) if not is_exp]
+    expiry = [v for v, is_exp in zip(values, labels, strict=True) if is_exp]
+    normal = [v for v, is_exp in zip(values, labels, strict=True) if not is_exp]
     return statistics.median(expiry) - statistics.median(normal)
 
 

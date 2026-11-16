@@ -6,6 +6,7 @@ Raw candle data never leaves the local database.
 usage:
     uv run python -m pipelines.export_site_data
 """
+
 import json
 from decimal import Decimal
 from pathlib import Path
@@ -49,7 +50,7 @@ def main():
         for name, sql in QUERIES.items():
             rows = conn.execute(sql).fetchall()
             out = OUT_DIR / f"{name}.json"
-            out.write_text(json.dumps(rows, default=to_json_value, indent=1))
+            out.write_text(json.dumps(rows, default=to_json_value, indent=1) + "\n")
             print(f"wrote {len(rows):,} rows to {out}")
 
 

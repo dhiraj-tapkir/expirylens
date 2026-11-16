@@ -3,6 +3,7 @@
 These need the local TimescaleDB running. If it isn't reachable (for example
 on CI), every test here is skipped rather than failed.
 """
+
 from datetime import date
 
 import psycopg

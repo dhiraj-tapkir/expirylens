@@ -12,6 +12,7 @@ breaks the candle contract, it is not loaded into the database.
 run the UI with:
     uv run dagster dev -m pipelines.definitions
 """
+
 from datetime import date, timedelta
 from pathlib import Path
 

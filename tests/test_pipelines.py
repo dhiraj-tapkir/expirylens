@@ -2,7 +2,9 @@
 
 No database or network needed, so these can run anywhere (including CI).
 """
+
 from datetime import date, datetime
+from itertools import pairwise
 from zoneinfo import ZoneInfo
 
 import polars as pl
@@ -37,7 +39,7 @@ def test_month_chunks_cover_range_without_gaps_or_overlaps():
 
     assert chunks[0][0] == date(2025, 9, 1)
     assert chunks[-1][1] == date(2026, 11, 11)
-    for (_, end), (next_start, _) in zip(chunks, chunks[1:]):
+    for (_, end), (next_start, _) in pairwise(chunks):
         assert (next_start - end).days == 1
     assert all((end - start).days <= 29 for start, end in chunks)
 
@@ -49,7 +51,10 @@ def test_slug_makes_safe_file_names():
 
 def test_guess_instrument_splits_the_key():
     assert guess_instrument("BSE_INDEX|SENSEX") == (
-        "BSE_INDEX|SENSEX", "SENSEX", "BSE_INDEX", "INDEX"
+        "BSE_INDEX|SENSEX",
+        "SENSEX",
+        "BSE_INDEX",
+        "INDEX",
     )
 
 

@@ -1,4 +1,5 @@
 """Contract tests: the candle contract must accept good data and reject bad data."""
+
 from datetime import datetime
 from zoneinfo import ZoneInfo
 

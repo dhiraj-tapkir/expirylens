@@ -1,4 +1,5 @@
 """One place that knows how to connect to the local database."""
+
 import os
 
 import psycopg

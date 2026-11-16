@@ -7,6 +7,7 @@ Data quality rule: on a normal trading day, candles outside 09:15-15:29 are
 stray prints and go to the quarantine table instead. Special short sessions
 (like diwali muhurat trading) are left alone.
 """
+
 import argparse
 from datetime import time
 
@@ -82,8 +83,8 @@ def load_file(path):
                 copy.write_row(row)
 
         cur.execute(
-            f"""insert into candles_1m ({', '.join(COLS)})
-                select {', '.join(COLS)} from staging
+            f"""insert into candles_1m ({", ".join(COLS)})
+                select {", ".join(COLS)} from staging
                 on conflict (instrument_key, ts) do nothing"""
         )
         inserted = cur.rowcount

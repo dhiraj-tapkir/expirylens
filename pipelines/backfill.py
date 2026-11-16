@@ -3,6 +3,7 @@
 usage:
     uv run python -m pipelines.backfill "NSE_INDEX|Nifty 50" 2026-01-01 2026-11-11
 """
+
 import argparse
 import re
 from datetime import date

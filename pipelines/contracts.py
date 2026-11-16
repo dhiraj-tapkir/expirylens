@@ -3,6 +3,7 @@
 If a downloaded file breaks any of these rules, the pipeline flags it
 before anything reaches the database.
 """
+
 import pandera.polars as pa
 import polars as pl
 

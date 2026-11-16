@@ -1,4 +1,5 @@
 """API tests. The first three need no database; the rest skip without one."""
+
 import psycopg
 import pytest
 from fastapi.testclient import TestClient

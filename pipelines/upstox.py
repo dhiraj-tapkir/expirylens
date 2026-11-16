@@ -3,6 +3,7 @@
 Only does one thing: give it an instrument and a date range, get back a
 Polars dataframe of 1-minute candles in IST.
 """
+
 import os
 from datetime import timedelta
 from urllib.parse import quote

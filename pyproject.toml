@@ -1,6 +1,7 @@
 [project]
 name = "expirylens"
 version = "0.1.0"
+description = "Expiry-day settlement surveillance for Indian index derivatives"
 requires-python = ">=3.12"
 dependencies = [
     "dagster>=1.13.29",
@@ -18,8 +19,16 @@ dependencies = [
 [dependency-groups]
 dev = [
     "pytest>=9.2.0",
+    "ruff>=0.17.5",
 ]
 
 [tool.pytest.ini_options]
 pythonpath = ["."]
 testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP"]
