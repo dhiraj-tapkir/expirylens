@@ -36,6 +36,8 @@ tests the bar is p < 0.01.
   moved +62.1 bps after 15:14, bigger than 97% of auction-era days. Without
   the first week the Sensex gap holds (8.9 bps) but p rises to 0.019, so that
   result is suggestive but fragile.
+- Dropping Budget day and RBI policy days changes little. The Nifty VWAP-era
+  result gets stronger (p 0.0003), making it the most robust finding so far.
 - During the closing auction the displayed index freezes from 15:15 to about
   15:28, then jumps once. Any "last 30 minutes" metric has to account for this.
 
@@ -72,8 +74,8 @@ straight onto a specific day
 - **Expiry calendar:** derived in SQL from the days that actually traded, so
   holidays shift expiries automatically. Weeks the data doesn't fully cover yet
   are skipped.
-- **Research:** a late-move view, permutation tests per index and regime, and a
-  leave-one-out robustness check.
+- **Research:** a late-move view, permutation tests per index and regime, and
+  leave-one-out, burn-in and event-day robustness checks.
 - **API:** a read-only FastAPI service with validated, parameterised queries.
 - **Dashboard:** a static Next.js site with D3 charts, built from exported
   results and deployed to GitHub Pages on every merge.
@@ -151,15 +153,14 @@ npm --prefix web run dev
   are not in yet.
 - Only 14 to 15 closing-auction expiries per index so far, so the auction-era
   results carry wide uncertainty.
-- Event days (Budget day, policy days) are not tagged yet, so a news-driven
-  close counts the same as any other.
+- Event days (Budget day, RBI policy days) stay in the main tests and are
+  only dropped in a separate robustness check.
 - Holidays are inferred from missing trading days and still need checking
   against NSE's official list.
 - SEBI's orders referenced here are interim, not final findings.
 
 ## Roadmap
 
-- Tag event days and rerun the tests without them
 - Official settlement values and Bank Nifty
 - Closing-auction depth per exchange, to test why Nifty and Sensex differ
 - ExpiryLab: an agent-based simulator with known manipulations, to measure how

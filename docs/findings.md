@@ -2,6 +2,26 @@
 
 Running notes on what the data shows. Newest first.
 
+## 2026-11-17: event days do not drive the results
+
+Reran all four tests without Budget day (1 Feb 2026) and the seven RBI policy
+decision days in the sample (research/event_day_test.py):
+
+| Test | p, all days | p, without event days |
+|---|---|---|
+| Nifty, VWAP era | 0.0012 | 0.0003 |
+| Nifty, auction era | 0.2688 | 0.2692 |
+| Sensex, VWAP era | 0.1861 | 0.2377 |
+| Sensex, auction era | 0.0081 | 0.0103 |
+
+The Nifty VWAP-era effect gets stronger, which makes it the most robust result
+so far. The Sensex auction-era gap is unchanged at 9.4 bps, but p sits right on
+the 0.01 bar, which matches the burn-in check: suggestive, not settled.
+
+One overlap: Sensex's 1 Oct 2025 expiry fell on an RBI decision day, because
+the 2 Oct holiday pulled expiry forward a day. RBI announces at 10:00, hours
+before the 15:14 window, which may be why these days barely matter.
+
 ## 2026-11-17: the auction started with a volatile first week
 
 The closing auction began on Mon 3 Aug 2026, and its first days stand out.
