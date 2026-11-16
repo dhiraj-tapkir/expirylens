@@ -27,8 +27,8 @@ Median absolute late move, in basis points:
 p-values come from permutation tests (10,000 shuffles, fixed seed). With five
 tests the bar is p < 0.01.
 
-- **Nifty** shows a clear expiry effect under VWAP settlement that fades after
-  the auction started.
+- **Nifty** shows a clear expiry effect under VWAP settlement. After the auction
+  started the gap looks smaller, but that test is too small to tell.
 - **Sensex** shows the opposite: a weak effect before, roughly double after.
 - Leaving out 13 Aug 2026, the Sensex expiry in SEBI's Copthall interim order,
   barely moves the Sensex result (9.4 to 8.9 bps). One day is not driving it.
