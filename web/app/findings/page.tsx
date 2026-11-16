@@ -39,7 +39,7 @@ export default function Findings() {
 
       <section className="flex max-w-[820px] flex-col gap-4">
         <h1 className="m-0 text-[clamp(40px,5.5vw,68px)] font-extrabold leading-none">
-          The two indices reacted in opposite ways.
+          The two indices tell different stories.
         </h1>
         <p className="m-0 max-w-[680px] text-lg leading-relaxed text-muted">
           Median size of the move from 15:14 to the close, in basis points. Click any pair of bars to see its

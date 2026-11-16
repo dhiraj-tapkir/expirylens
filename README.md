@@ -29,7 +29,8 @@ tests the bar is p < 0.01.
 
 - **Nifty** shows a clear expiry effect under VWAP settlement. After the auction
   started the gap looks smaller, but that test is too small to tell.
-- **Sensex** shows the opposite: a weak effect before, roughly double after.
+- **Sensex** shows no clear effect before and a gap roughly double after, though
+  that result is borderline (see the checks below).
 - Leaving out 13 Aug 2026, the Sensex expiry in SEBI's Copthall interim order,
   barely moves the Sensex result (9.4 to 8.9 bps). One day is not driving it.
 - The auction had a rough start. Nifty's first auction-era expiry (4 Aug 2026)
