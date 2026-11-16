@@ -14,8 +14,22 @@ are still learning how much liquidity the auction attracts and when to place
 orders. That matters here because the auction-era sample is small (14 to 15
 expiries per index), so a few early days can move the medians.
 
-Next: a burn-in check that reruns the auction-era tests without 3 to 7 Aug
-2026. If the Sensex result survives, the effect is not just a transition shock.
+Burn-in check (research/burn_in_test.py), same permutation test, fresh seed
+per line:
+
+| Sensex, auction era | Expiries | Median gap | p |
+|---|---|---|---|
+| All auction days | 14 | 9.4 bps | 0.0081 |
+| Without 3 to 7 Aug | 13 | 8.9 bps | 0.0186 |
+| Without 3 to 14 Aug | 12 | 6.8 bps | 0.1150 |
+
+The direction holds in every slice, but significance does not: dropping just
+the first week pushes p above the 0.01 bar. Part of that is the smaller sample
+(each slice loses expiries from an already tiny set), and the two-week slice
+also drops 13 Aug. Nifty stays not significant in every slice (p 0.26 to 0.46).
+
+So the Sensex auction-era effect is suggestive but fragile. More auction-era
+expiries, or the switch back to VWAP on 7 Dec 2026, should settle it.
 
 ## 2026-11-12: Nifty and Sensex react to the auction in opposite ways
 

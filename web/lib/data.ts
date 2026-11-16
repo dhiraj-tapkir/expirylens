@@ -53,7 +53,7 @@ export const TESTS: Record<string, { p: number; note: string }> = {
   },
   "SENSEX|CAS": {
     p: 0.0084,
-    note: "Holds up without 13 Aug 2026, the expiry in SEBI's Copthall interim order: the gap only moves from 9.4 to 8.9 bps.",
+    note: "Survives dropping 13 Aug 2026, the Copthall order expiry (gap 9.4 to 8.9 bps), but not the first auction week: without 3 to 7 Aug, p rises to 0.019. Suggestive, not settled.",
   },
 };
 export const P_BAR = 0.01; // five tests, Bonferroni

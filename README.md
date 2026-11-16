@@ -33,8 +33,9 @@ tests the bar is p < 0.01.
 - Leaving out 13 Aug 2026, the Sensex expiry in SEBI's Copthall interim order,
   barely moves the Sensex result (9.4 to 8.9 bps). One day is not driving it.
 - The auction had a rough start. Nifty's first auction-era expiry (4 Aug 2026)
-  moved +62.1 bps after 15:14, bigger than 97% of auction-era days. A burn-in
-  check that drops the first week is next on the list.
+  moved +62.1 bps after 15:14, bigger than 97% of auction-era days. Without
+  the first week the Sensex gap holds (8.9 bps) but p rises to 0.019, so that
+  result is suggestive but fragile.
 - During the closing auction the displayed index freezes from 15:15 to about
   15:28, then jumps once. Any "last 30 minutes" metric has to account for this.
 
@@ -158,7 +159,6 @@ npm --prefix web run dev
 
 ## Roadmap
 
-- Burn-in check: rerun the auction-era tests without the first week of August
 - Tag event days and rerun the tests without them
 - Official settlement values and Bank Nifty
 - Closing-auction depth per exchange, to test why Nifty and Sensex differ
