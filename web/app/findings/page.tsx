@@ -4,7 +4,7 @@ import { useCallback, useState } from "react";
 import Brand from "@/components/Brand";
 import GroupedBars from "@/components/charts/GroupedBars";
 import Strip from "@/components/charts/Strip";
-import { INDEX_LABEL, P_BAR, REGIME_LABEL, findings } from "@/lib/data";
+import { CHECKS, INDEX_LABEL, P_BAR, REGIME_LABEL, ROBUSTNESS, findings } from "@/lib/data";
 
 const rows = findings();
 
@@ -103,12 +103,96 @@ export default function Findings() {
 
       <section className="flex flex-col gap-3">
         <h2 className="m-0 text-2xl font-bold">
-          Every day behind {INDEX_LABEL[f.index]}, {REGIME_LABEL[f.regime].toLowerCase()}
+          Every day behind {INDEX_LABEL[f.index]}, {REGIME_LABEL[f.regime].replace("Auction", "auction")}
         </h2>
         <p className="m-0 text-muted">Each dot is one day. Hover for details, click to open it in Explorer.</p>
         <div className="rounded-3xl border border-line bg-surface p-4">
           <Strip finding={f} />
         </div>
+      </section>
+
+      <section className="flex flex-col gap-3">
+        <h2 className="m-0 text-2xl font-bold">How solid is each result?</h2>
+        <p className="m-0 max-w-[760px] text-muted">
+          The same test, rerun with the shakiest days taken out. A result worth trusting keeps passing. Click a test
+          to select it above.
+        </p>
+        <div className="overflow-x-auto rounded-3xl border border-line bg-surface">
+          <table className="w-full min-w-[640px] border-collapse text-left">
+            <thead>
+              <tr className="text-sm text-muted">
+                <th className="px-5 py-4 font-medium">Test</th>
+                {CHECKS.map((c) => (
+                  <th key={c.id} className="px-5 py-4 font-medium">
+                    {c.label}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {rows.map((r) => {
+                const on = r.key === selected;
+                return (
+                  <tr
+                    key={r.key}
+                    onClick={() => onSelect(r.key)}
+                    className={`border-t border-line transition-colors ${on ? "bg-raised" : "hover:bg-raised"}`}
+                  >
+                    <th scope="row" className="px-5 py-4">
+                      <button
+                        type="button"
+                        aria-pressed={on}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          onSelect(r.key);
+                        }}
+                        className="text-left font-semibold"
+                      >
+                        {INDEX_LABEL[r.index]}
+                        <span
+                          className="block text-sm font-normal"
+                          style={{ color: r.regime === "CAS" ? "var(--orchid)" : "var(--teal)" }}
+                        >
+                          {REGIME_LABEL[r.regime]}
+                        </span>
+                      </button>
+                    </th>
+                    {CHECKS.map((c) => {
+                      const check = ROBUSTNESS[r.key]?.[c.id];
+                      if (!check) {
+                        return (
+                          <td key={c.id} className="px-5 py-4 text-sm text-muted">
+                            Not applicable
+                          </td>
+                        );
+                      }
+                      const ok = check.p < P_BAR;
+                      return (
+                        <td key={c.id} className="px-5 py-4">
+                          <span className="flex items-center gap-2 font-semibold">
+                            <span
+                              className="h-2.5 w-2.5 rounded-full"
+                              style={{ background: ok ? "var(--teal)" : "var(--amber)" }}
+                            />
+                            p {check.p.toFixed(4)}
+                          </span>
+                          <span className="text-sm text-muted">
+                            gap {check.gap > 0 ? "+" : ""}
+                            {check.gap.toFixed(1)} bps
+                          </span>
+                        </td>
+                      );
+                    })}
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+        <p className="m-0 text-sm text-muted">
+          Teal passes the {P_BAR} bar, amber does not. The first-week check only applies to the auction era. Small
+          differences in p between runs (around 0.001) are shuffle noise.
+        </p>
       </section>
 
       <p className="m-0 max-w-[760px] text-sm leading-relaxed text-muted">

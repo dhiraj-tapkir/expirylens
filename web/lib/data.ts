@@ -112,3 +112,20 @@ export function formatDay(iso: string): string {
   const d = new Date(`${iso}T00:00:00Z`);
   return `${WEEKDAYS[d.getUTCDay()]}, ${d.getUTCDate()} ${MONTHS[d.getUTCMonth()]} ${d.getUTCFullYear()}`;
 }
+
+// robustness checks, from research/burn_in_test.py and research/event_day_test.py
+export const CHECKS = [
+  { id: "full", label: "Full sample" },
+  { id: "noFirstWeek", label: "Without 3 to 7 Aug" },
+  { id: "noEvents", label: "Without Budget and RBI days" },
+] as const;
+
+type CheckId = (typeof CHECKS)[number]["id"];
+type CheckResult = { gap: number; p: number } | null; // null: check does not apply
+
+export const ROBUSTNESS: Record<string, Record<CheckId, CheckResult>> = {
+  "NIFTY|VWAP_PRE": { full: { gap: 3.3, p: 0.0012 }, noFirstWeek: null, noEvents: { gap: 3.5, p: 0.0003 } },
+  "NIFTY|CAS": { full: { gap: 2.5, p: 0.2716 }, noFirstWeek: { gap: 0.3, p: 0.4595 }, noEvents: { gap: 2.5, p: 0.2692 } },
+  "SENSEX|VWAP_PRE": { full: { gap: 0.9, p: 0.1786 }, noFirstWeek: null, noEvents: { gap: 0.8, p: 0.2377 } },
+  "SENSEX|CAS": { full: { gap: 9.4, p: 0.0084 }, noFirstWeek: { gap: 8.9, p: 0.0186 }, noEvents: { gap: 9.4, p: 0.0103 } },
+};
