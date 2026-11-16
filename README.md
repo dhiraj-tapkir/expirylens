@@ -1,10 +1,15 @@
 # ExpiryLens
 
 [![tests](https://github.com/dhiraj-tapkir/expirylens/actions/workflows/tests.yml/badge.svg)](https://github.com/dhiraj-tapkir/expirylens/actions/workflows/tests.yml)
+[![deploy dashboard](https://github.com/dhiraj-tapkir/expirylens/actions/workflows/pages.yml/badge.svg)](https://github.com/dhiraj-tapkir/expirylens/actions/workflows/pages.yml)
 
 Measuring how India's index expiry-day closes behave, and how that changed when
 settlement moved from a 30-minute VWAP to a closing auction in August 2026.
 Built only on public market data.
+
+**Live dashboard: [dhiraj-tapkir.github.io/expirylens](https://dhiraj-tapkir.github.io/expirylens/)**
+
+![ExpiryLens overview](docs/images/dashboard/overview-night.png)
 
 ## Key findings so far
 
@@ -27,6 +32,9 @@ tests the bar is p < 0.01.
 - **Sensex** shows the opposite: a weak effect before, roughly double after.
 - Leaving out 13 Aug 2026, the Sensex expiry in SEBI's Copthall interim order,
   barely moves the Sensex result (9.4 to 8.9 bps). One day is not driving it.
+- The auction had a rough start. Nifty's first auction-era expiry (4 Aug 2026)
+  moved +62.1 bps after 15:14, bigger than 97% of auction-era days. A burn-in
+  check that drops the first week is next on the list.
 - During the closing auction the displayed index freezes from 15:15 to about
   15:28, then jumps once. Any "last 30 minutes" metric has to account for this.
 
@@ -34,22 +42,42 @@ These are statistical patterns, not evidence of manipulation. Hedging flows
 and differences between the two exchanges' auctions could explain them.
 Full notes, dates and open questions: [docs/findings.md](docs/findings.md).
 
+## The dashboard
+
+Five pages, every chart clickable, night and day themes, and links that open
+straight onto a specific day
+([try one](https://dhiraj-tapkir.github.io/expirylens/explorer/?index=NIFTY&day=2026-08-04)).
+
+| | |
+|---|---|
+| ![Findings](docs/images/dashboard/findings-night.png) | ![Explorer zoomed on August 2026](docs/images/dashboard/explorer-zoom-day.png) |
+| **Findings:** the four tests, with every day behind each one | **Explorer:** zoom and pan through every close, TradingView-style crosshair |
+| ![Calendar](docs/images/dashboard/calendar-night.png) | ![Method](docs/images/dashboard/method-day.png) |
+| **Calendar:** one square per session, Budget Sunday included | **Method:** the pipeline, step by step, with real numbers |
+
 ## What's built
 
 - **Ingestion:** a small Upstox client that pulls 1-minute candles a month at a
   time, saves them as Parquet, and loads them into TimescaleDB through a
   staging table. Re-running it never creates duplicates.
+- **Data contracts:** a Pandera schema checks every candle (unique timestamps,
+  positive prices, a high above the low) as a blocking check, so bad data never
+  reaches the database.
 - **Data quality:** out-of-session prints on normal days go to a quarantine
   table with a reason, instead of being loaded or deleted. Every row is
   accounted for (rows read = inserted + quarantined).
+- **Orchestration:** Dagster runs the pipeline as 6 assets with 2 blocking
+  checks, from raw candles to the derived views.
 - **Expiry calendar:** derived in SQL from the days that actually traded, so
   holidays shift expiries automatically. Weeks the data doesn't fully cover yet
   are skipped.
 - **Research:** a late-move view, permutation tests per index and regime, and a
   leave-one-out robustness check.
-- **Tests:** 5 unit tests that run anywhere, plus 7 data tests against the real
-  database (known expiry days, no duplicates, OHLC sanity). CI runs on every
-  push.
+- **API:** a read-only FastAPI service with validated, parameterised queries.
+- **Dashboard:** a static Next.js site with D3 charts, built from exported
+  results and deployed to GitHub Pages on every merge.
+- **Tests:** 25 in total (unit, contract, API and data tests). The data tests
+  need the local database, so CI runs the other 15 on every push.
 
 | | |
 |---|---|
@@ -58,6 +86,7 @@ Full notes, dates and open questions: [docs/findings.md](docs/findings.md).
 | Expiries | 125 (63 Nifty, 62 Sensex) |
 | Quarantined prints | 2 |
 | TimescaleDB chunks | 63 weekly chunks |
+| Tests | 25 |
 
 ## Architecture
 
@@ -69,8 +98,8 @@ Full notes, dates and open questions: [docs/findings.md](docs/findings.md).
 
 ## Run it yourself
 
-You need Docker, [uv](https://docs.astral.sh/uv/), and a free Upstox account
-for an Analytics (read-only) token.
+You need Docker, [uv](https://docs.astral.sh/uv/), Node.js, and a free Upstox
+account for an Analytics (read-only) token.
 
 ```bash
 git clone https://github.com/dhiraj-tapkir/expirylens.git
@@ -85,50 +114,57 @@ echo "UPSTOX_ACCESS_TOKEN=<your analytics token>" >> .env
 docker compose up -d
 docker exec -i expirylens-db psql -U expiry -d expirylens < infra/sql/001_init.sql
 
-# data
-uv run python -m pipelines.backfill "NSE_INDEX|Nifty 50" 2025-09-01 2026-11-11
-uv run python -m pipelines.backfill "BSE_INDEX|SENSEX" 2025-09-01 2026-11-11
-uv run python -m pipelines.load_candles data/raw/candles/nse_index_nifty_50.parquet
-uv run python -m pipelines.load_candles data/raw/candles/bse_index_sensex.parquet
+# pipeline: open http://localhost:3000 and materialize all assets
+uv run dagster dev -m pipelines.definitions
 
-# calendar, metrics, tests, results
-docker exec -i expirylens-db psql -U expiry -d expirylens < infra/sql/002_expiry_calendar.sql
-docker exec -i expirylens-db psql -U expiry -d expirylens < infra/sql/003_late_move.sql
+# tests and statistics
 uv run pytest -v
 uv run python -m research.late_move_test
+
+# API docs at http://localhost:8000/docs
+uv run uvicorn api.main:app --reload
+
+# dashboard at http://localhost:3000/expirylens/
+uv run python -m pipelines.export_site_data
+npm --prefix web ci
+npm --prefix web run dev
 ```
 
 ## Repo layout
 
 | Folder | What's in it |
 |---|---|
-| `pipelines/` | Upstox client, backfill, loader with quarantine, DB helper |
+| `pipelines/` | Upstox client, backfill, loader with quarantine, contracts, Dagster assets, site export |
 | `infra/sql/` | Schema, expiry calendar, late-move view |
 | `research/` | Statistical tests |
-| `tests/` | Unit and data tests |
-| `docs/` | Findings log and diagrams |
-| `api/`, `web/` | Backend and dashboard (coming) |
+| `api/` | Read-only FastAPI service |
+| `web/` | Next.js and D3 dashboard |
+| `tests/` | Unit, contract, API and data tests |
+| `docs/` | Findings log, diagrams and screenshots |
+| `.github/workflows/` | Test runs and the GitHub Pages deploy |
 
 ## Limitations
 
 - 1-minute candles can't show what happens inside the closing auction.
 - The last candle of the day is used as the close. Official settlement values
   are not in yet.
-- Only 14 to 15 closing-auction expiries per index so far, so the CAS results
-  carry wide uncertainty.
+- Only 14 to 15 closing-auction expiries per index so far, so the auction-era
+  results carry wide uncertainty.
+- Event days (Budget day, policy days) are not tagged yet, so a news-driven
+  close counts the same as any other.
 - Holidays are inferred from missing trading days and still need checking
   against NSE's official list.
 - SEBI's orders referenced here are interim, not final findings.
 
 ## Roadmap
 
-- Dagster orchestration and Pandera data contracts
+- Burn-in check: rerun the auction-era tests without the first week of August
+- Tag event days and rerun the tests without them
 - Official settlement values and Bank Nifty
 - Closing-auction depth per exchange, to test why Nifty and Sensex differ
 - ExpiryLab: an agent-based simulator with known manipulations, to measure how
   well the detectors actually work
 - Counterfactual settlement and rupee-transfer estimates
-- FastAPI backend and a public dashboard on GitHub Pages
 - Re-run everything once expiries settle on the 30-minute VWAP again (from
   7 Dec 2026)
 

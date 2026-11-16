@@ -2,6 +2,21 @@
 
 Running notes on what the data shows. Newest first.
 
+## 2026-11-17: the auction started with a volatile first week
+
+The closing auction began on Mon 3 Aug 2026, and its first days stand out.
+Nifty's first auction-era expiry, Tue 4 Aug, moved +62.1 bps between 15:14 and
+the close, bigger than 97% of auction-era days. The session before it (3 Aug,
+the first auction day) shows a similar spike on a normal day.
+
+Volatile starts are common after a change in market structure: participants
+are still learning how much liquidity the auction attracts and when to place
+orders. That matters here because the auction-era sample is small (14 to 15
+expiries per index), so a few early days can move the medians.
+
+Next: a burn-in check that reruns the auction-era tests without 3 to 7 Aug
+2026. If the Sensex result survives, the effect is not just a transition shock.
+
 ## 2026-11-12: Nifty and Sensex react to the auction in opposite ways
 
 Same late-move metric (15:14 candle to final close), now for both indices.
