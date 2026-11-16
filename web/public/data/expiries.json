@@ -1,0 +1,627 @@
+[
+ {
+  "index_name": "NIFTY",
+  "expiry_date": "2025-09-02",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "NIFTY",
+  "expiry_date": "2025-09-09",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "NIFTY",
+  "expiry_date": "2025-09-16",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "NIFTY",
+  "expiry_date": "2025-09-23",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "NIFTY",
+  "expiry_date": "2025-09-30",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "NIFTY",
+  "expiry_date": "2025-10-07",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "NIFTY",
+  "expiry_date": "2025-10-14",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "NIFTY",
+  "expiry_date": "2025-10-20",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "NIFTY",
+  "expiry_date": "2025-10-28",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "NIFTY",
+  "expiry_date": "2025-11-04",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "NIFTY",
+  "expiry_date": "2025-11-11",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "NIFTY",
+  "expiry_date": "2025-11-18",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "NIFTY",
+  "expiry_date": "2025-11-25",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "NIFTY",
+  "expiry_date": "2025-12-02",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "NIFTY",
+  "expiry_date": "2025-12-09",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "NIFTY",
+  "expiry_date": "2025-12-16",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "NIFTY",
+  "expiry_date": "2025-12-23",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "NIFTY",
+  "expiry_date": "2025-12-30",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "NIFTY",
+  "expiry_date": "2026-01-06",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "NIFTY",
+  "expiry_date": "2026-01-13",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "NIFTY",
+  "expiry_date": "2026-01-20",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "NIFTY",
+  "expiry_date": "2026-01-27",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "NIFTY",
+  "expiry_date": "2026-02-03",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "NIFTY",
+  "expiry_date": "2026-02-10",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "NIFTY",
+  "expiry_date": "2026-02-17",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "NIFTY",
+  "expiry_date": "2026-02-24",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "NIFTY",
+  "expiry_date": "2026-03-02",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "NIFTY",
+  "expiry_date": "2026-03-10",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "NIFTY",
+  "expiry_date": "2026-03-17",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "NIFTY",
+  "expiry_date": "2026-03-24",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "NIFTY",
+  "expiry_date": "2026-03-30",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "NIFTY",
+  "expiry_date": "2026-04-07",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "NIFTY",
+  "expiry_date": "2026-04-13",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "NIFTY",
+  "expiry_date": "2026-04-21",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "NIFTY",
+  "expiry_date": "2026-04-28",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "NIFTY",
+  "expiry_date": "2026-05-05",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "NIFTY",
+  "expiry_date": "2026-05-12",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "NIFTY",
+  "expiry_date": "2026-05-19",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "NIFTY",
+  "expiry_date": "2026-05-26",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "NIFTY",
+  "expiry_date": "2026-06-02",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "NIFTY",
+  "expiry_date": "2026-06-09",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "NIFTY",
+  "expiry_date": "2026-06-16",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "NIFTY",
+  "expiry_date": "2026-06-23",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "NIFTY",
+  "expiry_date": "2026-06-30",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "NIFTY",
+  "expiry_date": "2026-07-07",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "NIFTY",
+  "expiry_date": "2026-07-14",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "NIFTY",
+  "expiry_date": "2026-07-21",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "NIFTY",
+  "expiry_date": "2026-07-28",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "NIFTY",
+  "expiry_date": "2026-08-04",
+  "settlement_rule": "CAS"
+ },
+ {
+  "index_name": "NIFTY",
+  "expiry_date": "2026-08-11",
+  "settlement_rule": "CAS"
+ },
+ {
+  "index_name": "NIFTY",
+  "expiry_date": "2026-08-18",
+  "settlement_rule": "CAS"
+ },
+ {
+  "index_name": "NIFTY",
+  "expiry_date": "2026-08-25",
+  "settlement_rule": "CAS"
+ },
+ {
+  "index_name": "NIFTY",
+  "expiry_date": "2026-09-01",
+  "settlement_rule": "CAS"
+ },
+ {
+  "index_name": "NIFTY",
+  "expiry_date": "2026-09-08",
+  "settlement_rule": "CAS"
+ },
+ {
+  "index_name": "NIFTY",
+  "expiry_date": "2026-09-15",
+  "settlement_rule": "CAS"
+ },
+ {
+  "index_name": "NIFTY",
+  "expiry_date": "2026-09-22",
+  "settlement_rule": "CAS"
+ },
+ {
+  "index_name": "NIFTY",
+  "expiry_date": "2026-09-29",
+  "settlement_rule": "CAS"
+ },
+ {
+  "index_name": "NIFTY",
+  "expiry_date": "2026-10-06",
+  "settlement_rule": "CAS"
+ },
+ {
+  "index_name": "NIFTY",
+  "expiry_date": "2026-10-13",
+  "settlement_rule": "CAS"
+ },
+ {
+  "index_name": "NIFTY",
+  "expiry_date": "2026-10-19",
+  "settlement_rule": "CAS"
+ },
+ {
+  "index_name": "NIFTY",
+  "expiry_date": "2026-10-27",
+  "settlement_rule": "CAS"
+ },
+ {
+  "index_name": "NIFTY",
+  "expiry_date": "2026-11-03",
+  "settlement_rule": "CAS"
+ },
+ {
+  "index_name": "NIFTY",
+  "expiry_date": "2026-11-09",
+  "settlement_rule": "CAS"
+ },
+ {
+  "index_name": "SENSEX",
+  "expiry_date": "2025-09-04",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "SENSEX",
+  "expiry_date": "2025-09-11",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "SENSEX",
+  "expiry_date": "2025-09-18",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "SENSEX",
+  "expiry_date": "2025-09-25",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "SENSEX",
+  "expiry_date": "2025-10-01",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "SENSEX",
+  "expiry_date": "2025-10-09",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "SENSEX",
+  "expiry_date": "2025-10-16",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "SENSEX",
+  "expiry_date": "2025-10-23",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "SENSEX",
+  "expiry_date": "2025-10-30",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "SENSEX",
+  "expiry_date": "2025-11-06",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "SENSEX",
+  "expiry_date": "2025-11-13",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "SENSEX",
+  "expiry_date": "2025-11-20",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "SENSEX",
+  "expiry_date": "2025-11-27",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "SENSEX",
+  "expiry_date": "2025-12-04",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "SENSEX",
+  "expiry_date": "2025-12-11",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "SENSEX",
+  "expiry_date": "2025-12-18",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "SENSEX",
+  "expiry_date": "2025-12-24",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "SENSEX",
+  "expiry_date": "2026-01-01",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "SENSEX",
+  "expiry_date": "2026-01-08",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "SENSEX",
+  "expiry_date": "2026-01-14",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "SENSEX",
+  "expiry_date": "2026-01-22",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "SENSEX",
+  "expiry_date": "2026-01-29",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "SENSEX",
+  "expiry_date": "2026-02-05",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "SENSEX",
+  "expiry_date": "2026-02-12",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "SENSEX",
+  "expiry_date": "2026-02-19",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "SENSEX",
+  "expiry_date": "2026-02-26",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "SENSEX",
+  "expiry_date": "2026-03-05",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "SENSEX",
+  "expiry_date": "2026-03-12",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "SENSEX",
+  "expiry_date": "2026-03-19",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "SENSEX",
+  "expiry_date": "2026-03-25",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "SENSEX",
+  "expiry_date": "2026-04-02",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "SENSEX",
+  "expiry_date": "2026-04-09",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "SENSEX",
+  "expiry_date": "2026-04-16",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "SENSEX",
+  "expiry_date": "2026-04-23",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "SENSEX",
+  "expiry_date": "2026-04-30",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "SENSEX",
+  "expiry_date": "2026-05-07",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "SENSEX",
+  "expiry_date": "2026-05-14",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "SENSEX",
+  "expiry_date": "2026-05-21",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "SENSEX",
+  "expiry_date": "2026-05-27",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "SENSEX",
+  "expiry_date": "2026-06-04",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "SENSEX",
+  "expiry_date": "2026-06-11",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "SENSEX",
+  "expiry_date": "2026-06-18",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "SENSEX",
+  "expiry_date": "2026-06-25",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "SENSEX",
+  "expiry_date": "2026-07-02",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "SENSEX",
+  "expiry_date": "2026-07-09",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "SENSEX",
+  "expiry_date": "2026-07-16",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "SENSEX",
+  "expiry_date": "2026-07-23",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "SENSEX",
+  "expiry_date": "2026-07-30",
+  "settlement_rule": "VWAP_PRE"
+ },
+ {
+  "index_name": "SENSEX",
+  "expiry_date": "2026-08-06",
+  "settlement_rule": "CAS"
+ },
+ {
+  "index_name": "SENSEX",
+  "expiry_date": "2026-08-13",
+  "settlement_rule": "CAS"
+ },
+ {
+  "index_name": "SENSEX",
+  "expiry_date": "2026-08-20",
+  "settlement_rule": "CAS"
+ },
+ {
+  "index_name": "SENSEX",
+  "expiry_date": "2026-08-27",
+  "settlement_rule": "CAS"
+ },
+ {
+  "index_name": "SENSEX",
+  "expiry_date": "2026-09-03",
+  "settlement_rule": "CAS"
+ },
+ {
+  "index_name": "SENSEX",
+  "expiry_date": "2026-09-10",
+  "settlement_rule": "CAS"
+ },
+ {
+  "index_name": "SENSEX",
+  "expiry_date": "2026-09-17",
+  "settlement_rule": "CAS"
+ },
+ {
+  "index_name": "SENSEX",
+  "expiry_date": "2026-09-24",
+  "settlement_rule": "CAS"
+ },
+ {
+  "index_name": "SENSEX",
+  "expiry_date": "2026-10-01",
+  "settlement_rule": "CAS"
+ },
+ {
+  "index_name": "SENSEX",
+  "expiry_date": "2026-10-08",
+  "settlement_rule": "CAS"
+ },
+ {
+  "index_name": "SENSEX",
+  "expiry_date": "2026-10-15",
+  "settlement_rule": "CAS"
+ },
+ {
+  "index_name": "SENSEX",
+  "expiry_date": "2026-10-22",
+  "settlement_rule": "CAS"
+ },
+ {
+  "index_name": "SENSEX",
+  "expiry_date": "2026-10-29",
+  "settlement_rule": "CAS"
+ },
+ {
+  "index_name": "SENSEX",
+  "expiry_date": "2026-11-05",
+  "settlement_rule": "CAS"
+ }
+]

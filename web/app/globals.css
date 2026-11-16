@@ -1,0 +1,103 @@
+@import "tailwindcss";
+
+/* night session is the default; day session swaps the same names */
+:root {
+  --bg: #0f1530;
+  --surface: #151c3b;
+  --raised: #1c2547;
+  --line: #2c3762;
+  --grid: #222b52;
+  --text: #e6e9f5;
+  --muted: #a3abcb;
+  --teal: #2bb3a8;
+  --orchid: #c266e8;
+  --amber: #f2b33d;
+  --neutral-bar: #5b6590;
+  --on-accent: #0f1530;
+  --orchid-wash: rgba(194, 102, 232, 0.07);
+  --dock: rgba(28, 37, 71, 0.88);
+  --shadow: 0 24px 60px rgba(5, 8, 25, 0.45);
+  color-scheme: dark;
+}
+
+[data-theme="day"] {
+  --bg: #f4f6fc;
+  --surface: #ffffff;
+  --raised: #ffffff;
+  --line: #d5daec;
+  --grid: #e6e9f4;
+  --text: #131a3a;
+  --muted: #4a5480;
+  --teal: #13756e;
+  --orchid: #8e36b8;
+  --amber: #a86c00;
+  --neutral-bar: #9aa3c4;
+  --on-accent: #ffffff;
+  --orchid-wash: rgba(142, 54, 184, 0.06);
+  --dock: rgba(255, 255, 255, 0.9);
+  --shadow: 0 20px 50px rgba(19, 26, 58, 0.14);
+  color-scheme: light;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-raised: var(--raised);
+  --color-line: var(--line);
+  --color-text: var(--text);
+  --color-muted: var(--muted);
+  --color-teal: var(--teal);
+  --color-orchid: var(--orchid);
+  --color-amber: var(--amber);
+  --font-display: var(--font-bricolage), system-ui, sans-serif;
+  --font-sans: var(--font-plex), system-ui, sans-serif;
+}
+
+html {
+  background: var(--bg);
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-plex), system-ui, sans-serif;
+  font-variant-numeric: tabular-nums;
+  transition: background-color 0.35s ease, color 0.35s ease;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-bricolage), system-ui, sans-serif;
+  letter-spacing: -0.03em;
+}
+
+:focus-visible {
+  outline: 2px solid var(--amber);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* the reticle replaces the arrow only on mouse/trackpad devices */
+@media (pointer: fine) {
+  html.has-reticle,
+  html.has-reticle *:not(a, a *, button, button *, input, label, label *, [data-reticle], [data-reticle] *) {
+    cursor: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* where the crosshair steps aside, show a real cursor instead of nothing */
+@media (pointer: fine) {
+  html.has-reticle [data-reticle] { cursor: default !important; }
+  html.has-reticle :is(a, button, label) { cursor: pointer !important; }
+}
