@@ -45,7 +45,7 @@ export const TESTS: Record<string, { p: number; note: string }> = {
   },
   "NIFTY|CAS": {
     p: 0.2716,
-    note: "The gap shrank and could be chance. With only 15 auction-era expiries the test has little power, so this is not proof the effect vanished.",
+    note: "The gap shrank, but the test is inconclusive: with only 15 auction-era expiries it would miss an 8 bps effect two times in three (see the power check in docs/findings.md).",
   },
   "SENSEX|VWAP_PRE": {
     p: 0.1786,

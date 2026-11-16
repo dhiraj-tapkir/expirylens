@@ -2,6 +2,30 @@
 
 Running notes on what the data shows. Newest first.
 
+## 2026-11-17: the auction-era tests are underpowered
+
+ExpiryLab, step one (research/power_test.py). For each index and era, fake
+samples were built from that era's real normal-day moves, with the same number
+of normal and expiry days, and a known effect was planted on the expiry days.
+Share of 300 runs where the permutation test passed p < 0.01:
+
+| Test | Expiries | +0 | +2 | +4 | +6 | +8 | +10 | +15 bps |
+|---|---|---|---|---|---|---|---|---|
+| Nifty, VWAP era | 48 | 1% | 40% | 100% | 100% | 100% | 100% | 100% |
+| Nifty, auction era | 15 | 1% | 1% | 9% | 17% | 33% | 51% | 86% |
+| Sensex, VWAP era | 48 | 0% | 30% | 91% | 100% | 100% | 100% | 100% |
+| Sensex, auction era | 14 | 1% | 2% | 9% | 27% | 48% | 73% | 97% |
+
+The test is well calibrated (about 1% false alarms with no effect). With 48
+expiries it reliably catches effects of about 4 bps. With 14 to 15 it needs
+about 12 to 15 bps.
+
+So the Sensex VWAP-era null is a real null: an effect of 4 bps or more would
+almost always have shown. The Nifty auction-era null is inconclusive: an 8 bps
+effect would be missed two times in three. And the Sensex auction-era gap of
+9.4 bps sits where the test succeeds only about two times in three, which
+explains why its p-value flips under the burn-in and event-day checks.
+
 ## 2026-11-17: event days do not drive the results
 
 Reran all four tests without Budget day (1 Feb 2026) and the seven RBI policy

@@ -9,6 +9,7 @@ dependencies = [
     "duckdb>=2.0.0",
     "fastapi>=0.162.5",
     "httpx>=0.28.1",
+    "numpy>=2.5.5",
     "pandera[polars]>=0.36.0",
     "polars>=2.1.0",
     "psycopg[binary]>=3.3.9",

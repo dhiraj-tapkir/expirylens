@@ -38,6 +38,10 @@ tests the bar is p < 0.01.
   result is suggestive but fragile.
 - Dropping Budget day and RBI policy days changes little. The Nifty VWAP-era
   result gets stronger (p 0.0003), making it the most robust finding so far.
+- A power check (ExpiryLab, step one) shows why the auction era is hard to
+  call: with 14 to 15 expiries the test reliably catches only effects of about
+  12 bps or more, against about 4 bps with 48 VWAP-era expiries. The Nifty
+  auction-era null is inconclusive, not proof the effect vanished.
 - During the closing auction the displayed index freezes from 15:15 to about
   15:28, then jumps once. Any "last 30 minutes" metric has to account for this.
 
@@ -75,7 +79,7 @@ straight onto a specific day
   holidays shift expiries automatically. Weeks the data doesn't fully cover yet
   are skipped.
 - **Research:** a late-move view, permutation tests per index and regime, and
-  leave-one-out, burn-in and event-day robustness checks.
+  leave-one-out, burn-in and event-day robustness checks, plus a power check.
 - **API:** a read-only FastAPI service with validated, parameterised queries.
 - **Dashboard:** a static Next.js site with D3 charts, built from exported
   results and deployed to GitHub Pages on every merge.
@@ -163,8 +167,8 @@ npm --prefix web run dev
 
 - Official settlement values and Bank Nifty
 - Closing-auction depth per exchange, to test why Nifty and Sensex differ
-- ExpiryLab: an agent-based simulator with known manipulations, to measure how
-  well the detectors actually work
+- ExpiryLab, beyond the power check: an agent-based simulator with planted
+  manipulations, to test detectors that look at more than the median gap
 - Counterfactual settlement and rupee-transfer estimates
 - Re-run everything once expiries settle on the 30-minute VWAP again (from
   7 Dec 2026)
