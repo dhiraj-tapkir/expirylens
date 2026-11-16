@@ -7,7 +7,7 @@ import { useEffect, useRef, useState } from "react";
 import { AUCTION_START, days as allDays, formatBps, formatDay, type Day } from "@/lib/data";
 
 const HEIGHT = 460;
-const M = { top: 20, right: 20, bottom: 40, left: 64 };
+const M = { top: 34, right: 20, bottom: 40, left: 64 };
 
 const parse = (iso: string) => new Date(`${iso}T00:00:00Z`);
 const keyOf = (d: Day) => `${d.index_name}|${d.day}`;
@@ -75,7 +75,7 @@ export default function Scatter({ data, selected, focus, onSelect }: Props) {
     yAxis.select(".domain").remove();
     yAxis.selectAll("line").style("stroke", "var(--grid)");
     yAxis.selectAll("text").style("fill", "var(--muted)").style("font-size", "12px");
-    svg.append("text").attr("x", M.left - 10).attr("y", M.top - 6).attr("text-anchor", "end")
+    svg.append("text").attr("x", M.left - 10).attr("y", M.top - 18).attr("text-anchor", "end")
       .style("fill", "var(--muted)").style("font-size", "11px").text("bps");
 
     const xAxis = svg.append("g").attr("transform", `translate(0,${HEIGHT - M.bottom})`);
