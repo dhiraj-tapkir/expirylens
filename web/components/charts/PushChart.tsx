@@ -72,7 +72,9 @@ export default function PushChart({ lift, vwapMoved, auctionMoved }: Props) {
         .style("stroke", colour).style("stroke-width", 2).style("stroke-dasharray", "6 4");
       svg.append("text").attr("x", anchor === "start" ? x(from) + 4 : x(MINUTES) - 4).attr("y", y(value) - 6)
         .attr("text-anchor", anchor)
-        .style("fill", colour).style("font-size", "12px").style("font-weight", "600").text(label);
+        .style("fill", colour).style("font-size", "12px").style("font-weight", "600")
+        .style("paint-order", "stroke").style("stroke", "var(--surface)").style("stroke-width", 4)
+        .text(label);
     };
     level(vwapMoved, "var(--teal)", `VWAP settlement +${vwapMoved.toFixed(1)}`, 1, "start");
     level(auctionMoved, "var(--orchid)", `auction +${auctionMoved.toFixed(1)}`, 24, "end");
