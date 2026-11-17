@@ -58,6 +58,7 @@ tests the bar is p < 0.01.
 These are statistical patterns, not evidence of manipulation. Hedging flows
 and differences between the two exchanges' auctions could explain them.
 Full notes, dates and open questions: [docs/findings.md](docs/findings.md).
+Why each part is built the way it is: [docs/design-decisions.md](docs/design-decisions.md).
 
 ## The dashboard
 
