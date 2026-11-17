@@ -47,6 +47,8 @@ tests the bar is p < 0.01.
   moves it about 5 bps yet stays invisible to the late-move test, which only
   sees moves after 15:14. A signed test catches late pushes far better than
   the size test used so far.
+- On the real data, the signed test finds no one-directional push in any
+  index or era. Sensex auction-era expiry moves are bigger, but go both ways.
 - During the closing auction the displayed index freezes from 15:15 to about
   15:28, then jumps once. Any "last 30 minutes" metric has to account for this.
 
@@ -173,8 +175,8 @@ npm --prefix web run dev
 
 - Official settlement values and Bank Nifty
 - Closing-auction depth per exchange, to test why Nifty and Sensex differ
-- Run the signed test on the real data, and build a detector for pushes that
-  start before 15:14
+- Build a detector for pushes that start before 15:14, and check whether the
+  auction-era upward drift on normal days is real
 - Counterfactual settlement and rupee-transfer estimates
 - Re-run everything once expiries settle on the 30-minute VWAP again (from
   7 Dec 2026)

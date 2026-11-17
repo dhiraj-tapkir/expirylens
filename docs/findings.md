@@ -2,6 +2,27 @@
 
 Running notes on what the data shows. Newest first.
 
+## 2026-11-18: no one-directional push in the real data
+
+ExpiryLab showed a signed test is far better at catching a push that always
+goes one way, so it was run on the real data in both directions
+(research/signed_test.py, bar 0.005 per direction):
+
+| Test | Expiry median | Normal median | p up | p down |
+|---|---|---|---|---|
+| Nifty, VWAP era | +3.4 | +0.6 | 0.0482 | 0.9525 |
+| Nifty, auction era | +9.9 | +7.2 | 0.2394 | 0.7716 |
+| Sensex, VWAP era | +1.8 | +1.0 | 0.2302 | 0.7703 |
+| Sensex, auction era | +0.4 | +4.5 | 0.7783 | 0.2220 |
+
+Nothing clears the bar. Sensex auction-era expiry moves are bigger but not in
+one direction, which fits two-way hedging flows or auction noise better than a
+single actor pushing the same way every week.
+
+Open question: in the auction era even normal days close above the 15:14 level
+(median +7.2 bps Nifty, +4.5 Sensex), against about +1 in the VWAP era. That
+could be a feature of the auction price or just the Aug to Nov market trend.
+
 ## 2026-11-18: ExpiryLab finds a blind spot in the late-move test
 
 ExpiryLab simulates the last 30 minutes of an expiry day (research/expirylab.py).
