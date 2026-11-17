@@ -2,6 +2,29 @@
 
 Running notes on what the data shows. Newest first.
 
+## 2026-11-18: a 15:00 reference narrows the blind spot, and the real data stays clean
+
+ExpiryLab compared detectors (research/expirylab_detectors.py). Measuring
+settlement against 15:00 instead of 15:14 sees pushes that start early, but the
+longer window is about twice as noisy. Flagging when either test passes at half
+the bar keeps false alarms near 0%:
+
+| 48 expiries | Late (15:14) | Window (15:00) | Combined |
+|---|---|---|---|
+| No manipulation | 0% | 1% | 0% |
+| VWAP push from 15:00 | 1% | 30% | 22% |
+| VWAP push from 15:15 | 92% | 35% | 90% |
+| Auction push, 3x deeper | 66% | 57% | 64% |
+
+The combined detector lifts coverage of the hidden push from 1% to 22% while
+keeping 90% on the visible one. It narrows the blind spot but cannot close it:
+a 5 bps push hides inside about 13 bps of normal 30-minute movement. Closing it
+needs trade-level data, which index candles do not have.
+
+On the real data the window test finds nothing in either direction
+(research/window_test.py; lowest p = 0.052, bar 0.005). The auction-era upward
+drift on normal days shows up again from 15:00 (+8.9 bps Nifty, +6.3 Sensex).
+
 ## 2026-11-18: no one-directional push in the real data
 
 ExpiryLab showed a signed test is far better at catching a push that always

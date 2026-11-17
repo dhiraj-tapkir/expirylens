@@ -49,6 +49,9 @@ tests the bar is p < 0.01.
   the size test used so far.
 - On the real data, the signed test finds no one-directional push in any
   index or era. Sensex auction-era expiry moves are bigger, but go both ways.
+- Measuring from 15:00 as well as 15:14 narrows the blind spot (hidden-push
+  coverage rises from 1% to 22% in simulation), and the real data shows no
+  hidden push either. Closing it fully needs trade-level data.
 - During the closing auction the displayed index freezes from 15:15 to about
   15:28, then jumps once. Any "last 30 minutes" metric has to account for this.
 
@@ -177,8 +180,8 @@ npm --prefix web run dev
 
 - Official settlement values and Bank Nifty
 - Closing-auction depth per exchange, to test why Nifty and Sensex differ
-- Build a detector for pushes that start before 15:14, and check whether the
-  auction-era upward drift on normal days is real
+- Check whether the auction-era upward drift on normal days is real, and
+  look for free trade-level data to close the blind spot fully
 - Counterfactual settlement and rupee-transfer estimates
 - Re-run everything once expiries settle on the 30-minute VWAP again (from
   7 Dec 2026)
