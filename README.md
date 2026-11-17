@@ -43,6 +43,10 @@ tests the bar is p < 0.01.
   call: with 14 to 15 expiries the test reliably catches only effects of about
   12 bps or more, against about 4 bps with 48 VWAP-era expiries. The Nifty
   auction-era null is inconclusive, not proof the effect vanished.
+- In the ExpiryLab simulator, a manipulator pushing VWAP settlement from 15:00
+  moves it about 5 bps yet stays invisible to the late-move test, which only
+  sees moves after 15:14. A signed test catches late pushes far better than
+  the size test used so far.
 - During the closing auction the displayed index freezes from 15:15 to about
   15:28, then jumps once. Any "last 30 minutes" metric has to account for this.
 
@@ -80,7 +84,8 @@ straight onto a specific day
   holidays shift expiries automatically. Weeks the data doesn't fully cover yet
   are skipped.
 - **Research:** a late-move view, permutation tests per index and regime, and
-  leave-one-out, burn-in and event-day robustness checks, plus a power check.
+  leave-one-out, burn-in and event-day robustness checks, a power check, and
+  ExpiryLab, a calibrated simulator with a planted manipulator.
 - **API:** a read-only FastAPI service with validated, parameterised queries.
 - **Dashboard:** a static Next.js site with D3 charts, built from exported
   results and deployed to GitHub Pages on every merge.
@@ -168,8 +173,8 @@ npm --prefix web run dev
 
 - Official settlement values and Bank Nifty
 - Closing-auction depth per exchange, to test why Nifty and Sensex differ
-- ExpiryLab, beyond the power check: an agent-based simulator with planted
-  manipulations, to test detectors that look at more than the median gap
+- Run the signed test on the real data, and build a detector for pushes that
+  start before 15:14
 - Counterfactual settlement and rupee-transfer estimates
 - Re-run everything once expiries settle on the 30-minute VWAP again (from
   7 Dec 2026)

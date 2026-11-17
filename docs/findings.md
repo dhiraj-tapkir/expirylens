@@ -2,6 +2,31 @@
 
 Running notes on what the data shows. Newest first.
 
+## 2026-11-18: ExpiryLab finds a blind spot in the late-move test
+
+ExpiryLab simulates the last 30 minutes of an expiry day (research/expirylab.py).
+Calibrated to real per-minute volatility, a plain random walk settled by VWAP
+reproduces real VWAP-era late moves with no tuning (4.5 bps simulated vs 4.3
+real for Nifty, 4.6 vs 5.1 for Sensex). The auction era needs an extra auction
+jump of 14.8 bps (Nifty) and 9.1 bps (Sensex) on top of the market's own moves.
+
+Then a manipulator with a fixed budget pushes settlement up
+(research/expirylab_attack.py, Nifty calibration, illustrative impact):
+
+| Strategy | Settlement moved | After 15:14 | Size test, 48 / 15 | Sign test, 48 / 15 |
+|---|---|---|---|---|
+| VWAP, buy 15:00 to 15:30 | 5.0 bps | -0.2 bps | 1% / 0% | 0% / 1% |
+| VWAP, buy 15:15 to 15:30 | 5.4 bps | 5.4 bps | 31% / 10% | 96% / 44% |
+| Auction, as deep as market | 30.0 bps | 30.0 bps | 100% / 90% | 100% / 100% |
+| Auction, 3x deeper | 10.0 bps | 10.0 bps | 9% / 2% | 75% / 22% |
+| Auction, 10x deeper | 3.0 bps | 3.0 bps | 1% / 1% | 10% / 2% |
+
+Three lessons. A VWAP push that starts before 15:14 is invisible to the
+late-move test, because it lifts the 15:14 price too. A signed test catches a
+one-directional push far better than the size test used on the real data. And
+whether the auction is easier to manipulate than VWAP depends entirely on how
+deep it is, which index candles cannot show.
+
 ## 2026-11-17: the auction-era tests are underpowered
 
 ExpiryLab, step one (research/power_test.py). For each index and era, fake
