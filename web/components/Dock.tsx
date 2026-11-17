@@ -10,6 +10,7 @@ const PAGES = [
   { href: "/findings", label: "Findings" },
   { href: "/explorer", label: "Explorer" },
   { href: "/calendar", label: "Calendar" },
+  { href: "/lab", label: "Lab" },
   { href: "/method", label: "Method" },
 ];
 

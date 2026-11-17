@@ -75,7 +75,7 @@ const STAGES: Stage[] = [
     kicker: "Show",
     title: "This dashboard",
     text: "A static Next.js site with D3 charts, built from the exported JSON. No server and no raw market data, only derived results.",
-    stats: [["5", "pages"], ["3", "JSON files"]],
+    stats: [["6", "pages"], ["3", "JSON files"]],
     tools: ["Next.js", "D3", "Motion"],
   },
 ];

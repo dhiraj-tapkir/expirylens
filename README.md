@@ -58,7 +58,7 @@ Full notes, dates and open questions: [docs/findings.md](docs/findings.md).
 
 ## The dashboard
 
-Five pages, every chart clickable, night and day themes, and links that open
+Six pages, every chart clickable, night and day themes, and links that open
 straight onto a specific day
 ([try one](https://dhiraj-tapkir.github.io/expirylens/explorer/?index=NIFTY&day=2026-08-04)).
 

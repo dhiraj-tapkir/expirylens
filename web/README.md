@@ -14,6 +14,7 @@ it needs no server and no raw market data.
 | Findings | The four permutation tests, with every day behind each one |
 | Explorer | Zoomable timeline with axis value tags and a detail card per day |
 | Calendar | One square per session, expiries outlined, holidays dashed |
+| Lab | Play the manipulator in a calibrated simulator and see which tests catch you |
 | Method | The pipeline, step by step, with real numbers |
 
 Every chart is clickable, both themes follow the system setting (or the toggle
