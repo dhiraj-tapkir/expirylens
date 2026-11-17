@@ -68,6 +68,8 @@ straight onto a specific day
 | **Findings:** the four tests, with every day behind each one | **Explorer:** zoom and pan through every close, TradingView-style crosshair |
 | ![Calendar](docs/images/dashboard/calendar-night.png) | ![Method](docs/images/dashboard/method-day.png) |
 | **Calendar:** one square per session, Budget Sunday included | **Method:** the pipeline, step by step, with real numbers |
+| ![Lab: a push from 15:01](docs/images/dashboard/lab-blind-spot-night.png) | ![Lab: a push from 15:17](docs/images/dashboard/lab-visible-night.png) |
+| **Lab:** start buying at 15:01 and VWAP moves, yet the late-move test sees nothing | **Lab:** start at 15:17 and the same test sees all of it |
 
 ## What's built
 
